@@ -86,7 +86,7 @@ For evaluation, enterprise access, or partnership questions, contact [hello@infr
 
 Infrayard's current focus is reliable governed OKE lifecycle management, BYON validation, and production deployment into existing OKE environments.
 
-Planned roadmap areas include an AI-assisted troubleshooting advisor, Gatekeeper policy and cost guardrails, drift detection, approval-gated remediation, and an in-cluster access agent for private-by-default environments. Roadmap items are directional and may change based on customer feedback and commercial agreements.
+Planned roadmap areas include an AI-assisted troubleshooting advisor powered by Claude (with an optional Oracle-native provider), Gatekeeper policy and cost guardrails, drift detection, approval-gated remediation, and an in-cluster access agent for private-by-default environments. Roadmap items are directional and may change based on customer feedback and commercial agreements.
 
 ## Repository Scope
 
