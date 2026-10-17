@@ -198,7 +198,7 @@ for (const path of staticPages) {
   const title = resourceTitles[name] || strip(html.match(/<title>([\s\S]*?)<\/title>/)[1]);
   const headline = strip(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)[1]);
   const oldHead = html.match(/<head>([\s\S]*?)<\/head>/)[1];
-  const retained = [...oldHead.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*>|<style\b[^>]*>[\s\S]*?<\/style>|<script\b[^>]*\bsrc="[^"]+"[^>]*>[\s\S]*?<\/script>/g)].map(match => match[0]).join('\n');
+  const retained = [...oldHead.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*>|<style\b[^>]*>[\s\S]*?<\/style>|<script\b[^>]*\bsrc="[^"]+"[^>]*>[\s\S]*?<\/script>/g)].map(match => match[0]).filter(tag => !tag.includes('href="/assets/fonts.css"')).join('\n');
   const resource = path.startsWith('/resources/');
   const article = resource && name !== 'index.html';
   const oldNodes = [...oldHead.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].flatMap(match => { const data = JSON.parse(match[1]); return data['@graph'] || [data]; });

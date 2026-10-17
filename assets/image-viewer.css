@@ -1,0 +1,46 @@
+html.screenshot-open { overflow:hidden }
+
+#screenshot-dialog {
+  position:fixed;
+  inset:0;
+  width:100%;
+  max-width:none;
+  height:100dvh;
+  max-height:none;
+  margin:0;
+  padding:20px;
+  border:0;
+  border-radius:0;
+  color:var(--ink);
+  background:var(--bg);
+  overflow:hidden
+}
+
+#screenshot-dialog[open] { display:flex; flex-direction:column; gap:16px }
+.screenshot-toolbar { display:flex; justify-content:space-between; align-items:start; gap:20px; flex-shrink:0 }
+.screenshot-heading { min-width:0 }
+.screenshot-heading h2 { margin:0; font-size:clamp(1rem,2.2vw,1.35rem); line-height:1.3; letter-spacing:-.02em }
+.screenshot-count { margin:0 0 5px; color:var(--brand); font-size:.7rem; font-weight:600; letter-spacing:.06em }
+#screenshot-help { margin:6px 0 0; font-size:.75rem; color:var(--muted) }
+.screenshot-tools { display:flex; align-items:center; gap:8px; flex-shrink:0 }
+.screenshot-tool { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:9px 13px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--ink); font:inherit; font-size:.78rem; font-weight:550; white-space:nowrap; text-decoration:none }
+.screenshot-tool:hover { background:var(--soft); text-decoration:none }
+.screenshot-tool[aria-pressed=true] { border-color:var(--brand); background:var(--tint) }
+.screenshot-close { min-width:44px; padding:0; font-size:1.6rem; line-height:1 }
+.screenshot-stage { display:flex; align-items:center; justify-content:center; flex:1; min-height:0; overflow:auto; border:1px solid var(--line); border-radius:10px; background:#07111c; overscroll-behavior:contain; touch-action:pan-x pan-y pinch-zoom }
+#screenshot-image { display:block; width:auto; height:auto; max-width:100%; max-height:100%; object-fit:contain; cursor:zoom-in }
+.screenshot-dialog.is-zoomed .screenshot-stage { display:block }
+.screenshot-dialog.is-zoomed #screenshot-image { max-width:none; max-height:none; margin:auto; cursor:zoom-out }
+.screenshot-navigation { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-shrink:0 }
+#screenshot-status { margin:0; font-size:.78rem; color:var(--muted); text-align:center }
+
+@media(max-width:680px) {
+  #screenshot-dialog { padding:12px; padding-bottom:max(12px,env(safe-area-inset-bottom)); gap:12px }
+  .screenshot-toolbar { flex-wrap:wrap; gap:12px }
+  .screenshot-heading { width:100%; padding-right:50px }
+  .screenshot-tools { width:100% }
+  .screenshot-close { position:absolute; top:12px; right:12px }
+  #screenshot-help { font-size:.7rem }
+  .screenshot-tool { font-size:.74rem }
+  #screenshot-status { font-size:.7rem }
+}

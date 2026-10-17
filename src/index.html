@@ -6,8 +6,10 @@
   {{seoHead}}
   <script src="/assets/theme.js"></script>
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/image-viewer.css">
   <script id="pricing-data" type="application/json">{{pricingData}}</script>
   <script type="module" src="/assets/site.js"></script>
+  <script defer src="/assets/image-viewer.js"></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -50,9 +52,9 @@
       <div class="container">
         <div class="section-intro"><p class="eyebrow">The product in practice</p><h2 id="workflow-title">From an approved template to an OKE cluster.</h2></div>
         <div class="workflow-grid">
-          <article class="workflow-card"><img src="/assets/product-template.jpg" width="960" height="600" loading="lazy" alt="Infrayard cluster configuration shown in the recorded product demo"><div class="workflow-copy"><p class="step">01 / Choose</p><h3>Start with a template.</h3><p>Use a configuration approved by your platform team.</p></div></article>
-          <article class="workflow-card"><img src="/assets/product-review.jpg" width="960" height="600" loading="lazy" alt="Infrayard resource configuration and estimated costs in the recorded demo"><div class="workflow-copy"><p class="step">02 / Review</p><h3>Check the request.</h3><p>Review resources, limits and estimated costs before deployment.</p></div></article>
-          <article class="workflow-card"><img src="/assets/product-operate.jpg" width="960" height="600" loading="lazy" alt="Infrayard cluster deployment view from the recorded product demo"><div class="workflow-copy"><p class="step">03 / Operate</p><h3>Manage the lifecycle.</h3><p>Access clusters, adjust capacity and run supported upgrade and cleanup workflows.</p></div></article>
+          <article class="workflow-card"><a class="screenshot-trigger" href="/assets/product-template-full.jpg" data-screenshot data-title="Start with a template" aria-label="View full-size screenshot: cluster template configuration" aria-haspopup="dialog"><img src="/assets/product-template.jpg" width="1280" height="720" loading="lazy" alt="Infrayard cluster configuration shown in the recorded product demo"><span class="screenshot-expand" aria-hidden="true">↗ View full size</span></a><div class="workflow-copy"><p class="step">01 / Choose</p><h3>Start with a template.</h3><p>Use a configuration approved by your platform team.</p></div></article>
+          <article class="workflow-card"><a class="screenshot-trigger" href="/assets/product-review-full.jpg" data-screenshot data-title="Review resources and estimated costs" aria-label="View full-size screenshot: resource and cost review" aria-haspopup="dialog"><img src="/assets/product-review.jpg" width="1280" height="720" loading="lazy" alt="Infrayard resource configuration and estimated costs in the recorded demo"><span class="screenshot-expand" aria-hidden="true">↗ View full size</span></a><div class="workflow-copy"><p class="step">02 / Review</p><h3>Check the request.</h3><p>Review resources, limits and estimated costs before deployment.</p></div></article>
+          <article class="workflow-card"><a class="screenshot-trigger" href="/assets/product-operate-full.jpg" data-screenshot data-title="Follow cluster deployment" aria-label="View full-size screenshot: cluster deployment and execution logs" aria-haspopup="dialog"><img src="/assets/product-operate.jpg" width="1280" height="720" loading="lazy" alt="Infrayard cluster deployment view from the recorded product demo"><span class="screenshot-expand" aria-hidden="true">↗ View full size</span></a><div class="workflow-copy"><p class="step">03 / Operate</p><h3>Manage the lifecycle.</h3><p>Access clusters, adjust capacity and run supported upgrade and cleanup workflows.</p></div></article>
         </div>
         <div class="section-tail"><span>Real screens from the recorded demo. Terraform runs underneath, with logs available to inspect.</span><a class="text-link" href="/docs/cluster-lifecycle/">Explore cluster workflows →</a></div>
       </div>
@@ -93,6 +95,11 @@
   </main>
   {{footer}}
   {{contactDialog}}
+  <dialog id="screenshot-dialog" class="screenshot-dialog" aria-labelledby="screenshot-title" aria-describedby="screenshot-help">
+    <div class="screenshot-toolbar"><div class="screenshot-heading"><p class="screenshot-count" id="screenshot-count" aria-live="polite"></p><h2 id="screenshot-title">Product screenshot</h2><p id="screenshot-help">Use the arrows to browse. Click the image to zoom. Escape closes the viewer.</p></div><div class="screenshot-tools"><button class="screenshot-tool" id="screenshot-zoom" type="button" aria-pressed="false">Actual size</button><a class="screenshot-tool" id="screenshot-original" href="/assets/product-template-full.jpg" target="_blank" rel="noopener">Open original ↗</a><button class="screenshot-tool screenshot-close" id="screenshot-close" type="button" aria-label="Close screenshot viewer" autofocus>×</button></div></div>
+    <div class="screenshot-stage" id="screenshot-stage"><img id="screenshot-image" width="1920" height="1080" alt=""></div>
+    <div class="screenshot-navigation"><button class="screenshot-tool" id="screenshot-previous" type="button" aria-label="Previous screenshot">← Previous</button><p id="screenshot-status" role="status" hidden>Unable to load this screenshot. Use “Open original” to view it directly.</p><button class="screenshot-tool" id="screenshot-next" type="button" aria-label="Next screenshot">Next →</button></div>
+  </dialog>
   <noscript><p class="container small">To request a demo or discuss a subscription, email <a href="mailto:hello@infrayard.eu">hello@infrayard.eu</a>.</p></noscript>
 </body>
 </html>

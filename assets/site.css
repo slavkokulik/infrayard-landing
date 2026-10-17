@@ -49,7 +49,7 @@ body {
   margin:0;
   background:var(--bg);
   color:var(--ink);
-  font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  font-family:var(--font-sans);
   line-height:1.65;
   -webkit-font-smoothing:antialiased
 }
@@ -515,12 +515,18 @@ svg {
 
 .workflow-card img {
   width:100%;
-  aspect-ratio:16/10;
-  object-fit:cover;
-  object-position:top;
+  height:auto;
+  aspect-ratio:16/9;
+  object-fit:contain;
   background:var(--soft);
   border-bottom:1px solid var(--line)
 }
+
+.screenshot-trigger { display:block; position:relative; cursor:zoom-in }
+.screenshot-trigger:focus-visible { outline-offset:-4px }
+.screenshot-expand { position:absolute; right:10px; bottom:10px; display:inline-flex; align-items:center; gap:6px; padding:6px 9px; border:1px solid rgba(255,255,255,.3); border-radius:6px; background:rgba(6,18,28,.88); color:#fff; font-size:.65rem; font-weight:550; line-height:1.4; pointer-events:none }
+.screenshot-expand svg { width:14px; height:14px }
+.screenshot-trigger:hover .screenshot-expand,.screenshot-trigger:focus-visible .screenshot-expand { background:#153f52 }
 
 .workflow-copy {
   padding:22px
