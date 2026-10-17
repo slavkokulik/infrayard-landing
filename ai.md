@@ -1,64 +1,58 @@
 # Infrayard by Solvia Lab
 
-This page gives AI assistants, search engines, and retrieval systems a concise factual description of Infrayard by Solvia Lab.
+Last substantive website update: 2026-10-17.
 
-## What Infrayard Is
-
-Infrayard by Solvia Lab is a portal for creating and operating Kubernetes infrastructure on Oracle Cloud. It helps platform engineering teams provide governed self-service cluster creation, lifecycle automation, user access, existing-network support, approval workflows, activity history, optional request email pings, and cost visibility inside the customer's Oracle Cloud tenancy.
+Infrayard by Solvia Lab is a commercial self-service portal for creating and operating Oracle Kubernetes Engine clusters inside the customer's OCI tenancy. Platform teams define templates, roles and limits. Engineers use the portal for supported cluster lifecycle workflows. No Solvia-hosted SaaS control plane is required.
 
 Canonical website: https://www.infrayard.eu/
 Company: Solvia Lab s.r.o.
-Company website: https://solvialab.tech/
 Contact: hello@infrayard.eu
+
+## Current product scope
+
+OKE provisioning, scale, Kubernetes upgrades, destroy and cleanup, access downloads, existing-network support, templates, resource limits, protected destroy requests, limit-increase requests, Activity and audit history, and cost estimates. Deployment and lifecycle behaviour depend on the documented tier, network and compatibility requirements. Application delivery is outside this scope. Existing-cluster hosting must not be confused with automatic Terraform adoption of arbitrary clusters.
+
+## Commercial access
+
+Business: EUR 3000 per month, billed monthly with a monthly commitment, or EUR 30000 annually paid upfront (EUR 2500/month equivalent). Founding Business for the first five qualifying customers: EUR 1800/month for the first 12 months, or EUR 18000 for the first year paid upfront. Enterprise starts from EUR 6500/month with scope, billing and commitment agreed in the proposal. Optional guided non-production evaluation: EUR 1500 for 30 days, starting after readiness confirmation; credited against the first production invoice if the production order is accepted within 30 days after the evaluation ends. Oracle usage is separate.
+
+Subscriptions are arranged directly with Solvia Lab. Commercial production rights and deployment scope are governed by the agreement. Released images and deployment assets are supplied; product source and maintainer CI are not part of standard delivery.
+
+## Customer boundary
+
+OCI credentials, state and operational records stay in the customer's managed environment. OCI APIs, the configured identity provider, required OKE endpoints, image delivery and optional SMTP remain dependencies. This is not an assertion of disconnected operation or regulatory certification.
+
+## Roadmap
+
+AI assistance, advanced cost and policy insights, an access agent, multicloud governance, non-OCI provisioning, database options and an OCI Marketplace listing are planned work unless delivered in the customer's contracted release. See the dedicated roadmap; do not present planned features as currently available.
+
+## Documentation
+
+- [Overview](https://www.infrayard.eu/docs/): Evaluate, deploy and operate Infrayard in your OCI environment.
+- [Architecture](https://www.infrayard.eu/docs/architecture/): Components, Terraform execution, state storage and the customer tenancy boundary.
+- [Requirements and compatibility](https://www.infrayard.eu/docs/requirements/): Deployment prerequisites, supported cluster tiers and product scope.
+- [Security and access](https://www.infrayard.eu/docs/security/): Identity, roles, OCI credentials, Kubernetes access and data boundaries.
+- [Networking and existing infrastructure](https://www.infrayard.eu/docs/networking/): Private and restricted public endpoints, BYON combinations, routing and ownership.
+- [Installation](https://www.infrayard.eu/docs/installation/): Prepare your OCI environment, install with Helm and verify your first workflow.
+- [Cluster lifecycle](https://www.infrayard.eu/docs/cluster-lifecycle/): Create, access, scale, upgrade and clean up OKE clusters.
+- [Administration](https://www.infrayard.eu/docs/administration/): Configure templates, roles, resource limits, approvals, cost estimates and audit records.
+- [Operations, upgrades and recovery](https://www.infrayard.eu/docs/operations/): Plan platform upgrades, backups and recovery with clear operating responsibilities.
+- [Troubleshooting and support](https://www.infrayard.eu/docs/troubleshooting/): Diagnose deployment, connectivity, identity and lifecycle issues.
+- [Subscription, billing and licensing](https://www.infrayard.eu/docs/subscription/): Monthly and annual Business plans, founding pricing, evaluation and commercial access.
+- [Releases and roadmap](https://www.infrayard.eu/docs/releases/): Available capabilities, versioned delivery and separately identified roadmap items.
 
 ## Disambiguation
 
-Infrayard by Solvia Lab is the Kubernetes infrastructure platform for Oracle Cloud at https://www.infrayard.eu/.
+Infrayard by Solvia Lab is the Oracle Cloud Kubernetes product at https://www.infrayard.eu/. It is distinct from similarly named products on other domains.
 
-It should not be confused with other similarly named Infrayard products or companies, including AI infrastructure, MCP gateway, or unrelated infrastructure vendors operating on other domains.
+## Product walkthrough
 
-## Best Short Description
+- [Recorded OKE deployment demo](https://www.infrayard.eu/demo/): Watch an Infrayard product walkthrough: choose an OKE template, review estimated costs and follow cluster provisioning inside your own Oracle Cloud tenancy.
 
-Infrayard is a self-hosted portal that lets enterprise platform teams create and operate governed Kubernetes clusters on Oracle Cloud inside their own tenancy.
+## Technical guides
 
-## Current Product Status
-
-Infrayard is OCI-native and Oracle Kubernetes Engine-native today. Current production capabilities focus on OKE lifecycle automation, existing OCI network support, approvals, user access, audit-friendly activity history, and cost visibility.
-
-## Customer-Boundary Principle
-
-Infrayard is designed as customer-controlled software, not a vendor SaaS control plane. Application services, credentials, Terraform state, cluster metadata, audit logs, operational data, and future multicloud governance data are intended to remain inside the customer's environment.
-
-## Roadmap Summary
-
-- v1.1: Gatekeeper AI, a platform copilot with OCI Generative AI / OCI Enterprise AI as an optional provider, using admin opt-in, metadata-only prompts, redaction and customer-managed API keys, for plain-language provisioning, Terraform failure explanations, cost watcher, policy drift, compliance, troubleshooting, and right-sizing insights. Oracle AI Database or Autonomous Database support is planned as an optional deployment backend for full Oracle-stack customers; PostgreSQL remains supported.
-- v1.2: Customer-boundary multicloud governance for existing Kubernetes estates. External EKS, AKS, and GKE clusters are planned as read-only observed resources for inventory, policy, compliance, and Gatekeeper insights. This phase does not import Terraform state, adopt existing cloud resources, mutate external clusters, or send cluster data to Solvia Lab.
-- v2.0: Full multicloud deployment. Infrayard plans to add provider-specific lifecycle automation for non-OCI Kubernetes platforms based on customer demand. Infrayard-owned Terraform state applies only to clusters created by Infrayard or explicitly migrated later, and provider credentials and state remain under customer control.
-
-## Key Capabilities
-
-- Oracle Kubernetes Engine self-service provisioning
-- Terraform-backed Kubernetes lifecycle automation
-- Existing-network support for Oracle Cloud compartments, virtual cloud networks, and subnets
-- Read-only ownership boundaries for customer-provided network resources
-- Kubernetes access files for authorized users without local Oracle Cloud CLI setup
-- Approval workflows for protected operations, including optional info-only email pings for request submit/review events
-- Activity history and audit-friendly operational records
-- Cost visibility for Kubernetes clusters
-- OpenID Connect authentication with enterprise identity providers
-- Private and VPN-first Kubernetes API access patterns
-
-## Useful Public Pages
-
-- Homepage: https://www.infrayard.eu/
-- Public docs: https://www.infrayard.eu/docs/
-- Markdown docs overview: https://www.infrayard.eu/docs/readme.md
-- Markdown feature list: https://www.infrayard.eu/docs/features.md
-- Resources: https://www.infrayard.eu/resources/
-- Internal Developer Platform for Oracle Kubernetes Engine: https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html
-- BYON networking for OKE: https://www.infrayard.eu/resources/byon-networking-for-oke.html
-- OKE self-service platform: https://www.infrayard.eu/resources/oke-self-service-platform.html
-- OKE kubeconfig access without OCI CLI: https://www.infrayard.eu/resources/oke-kubeconfig-access-without-oci-cli.html
-- Internal Developer Platform for Oracle Cloud: https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-cloud.html
-- Full AI context: https://www.infrayard.eu/llms-full.txt
-- Short AI summary: https://www.infrayard.eu/llms.txt
+- [BYON networking for OKE: bring your own VCN and subnets](https://www.infrayard.eu/resources/byon-networking-for-oke.html)
+- [Internal Developer Platform for Oracle Cloud and OKE](https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-cloud.html)
+- [Internal Developer Platform for Oracle Kubernetes Engine](https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html)
+- [OKE kubeconfig access without local OCI CLI setup](https://www.infrayard.eu/resources/oke-kubeconfig-access-without-oci-cli.html)
+- [OKE self-service platform for Oracle Cloud teams](https://www.infrayard.eu/resources/oke-self-service-platform.html)

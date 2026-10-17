@@ -10,6 +10,8 @@
   --dark: #0f1b2e;
   --green: #0d8b61;
 }
+
+.resource-breadcrumb { display:flex; flex-wrap:wrap; gap:8px; color:var(--muted); font-size:12px; margin-bottom:20px }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; font-family: Lato, Arial, sans-serif; color: var(--text); background: var(--bg); line-height: 1.65; }

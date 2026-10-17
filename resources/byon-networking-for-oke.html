@@ -1,83 +1,66 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BYON networking for OKE: bring your own VCN and subnets - Infrayard by Solvia Lab</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>BYON Networking for OKE: VCNs and Subnets | Infrayard</title>
   <meta name="description" content="A practical look at bring-your-own-network patterns for Oracle Kubernetes Engine and how Infrayard keeps customer-owned OCI network resources under platform control.">
-  <meta name="keywords" content="BYON OKE, bring your own network Oracle Kubernetes Engine, OCI VCN for OKE, OKE private networking">
   <link rel="canonical" href="https://www.infrayard.eu/resources/byon-networking-for-oke.html">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <meta name="author" content="Solvia Lab s.r.o.">
+  <meta name="theme-color" content="#f7f9fa">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="/favicon-192x192.png" sizes="192x192">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="alternate" type="text/plain" href="/llms.txt" title="Infrayard AI summary">
-  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Infrayard full AI context">
-  <link rel="alternate" type="text/markdown" href="/ai.md" title="Infrayard AI facts and disambiguation">
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Infrayard full documentation context">
+  <link rel="alternate" type="text/markdown" href="/ai.md" title="Infrayard product facts">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.infrayard.eu/resources/byon-networking-for-oke.html">
-  <meta property="og:title" content="BYON networking for OKE: bring your own VCN and subnets - Infrayard by Solvia Lab">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="BYON Networking for OKE: VCNs and Subnets | Infrayard">
   <meta property="og:description" content="A practical look at bring-your-own-network patterns for Oracle Kubernetes Engine and how Infrayard keeps customer-owned OCI network resources under platform control.">
+  <meta property="og:url" content="https://www.infrayard.eu/resources/byon-networking-for-oke.html">
   <meta property="og:site_name" content="Infrayard">
   <meta property="og:image" content="https://www.infrayard.eu/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Infrayard — self-service Kubernetes on Oracle Cloud inside your tenancy">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BYON Networking for OKE: VCNs and Subnets | Infrayard">
+  <meta name="twitter:description" content="A practical look at bring-your-own-network patterns for Oracle Kubernetes Engine and how Infrayard keeps customer-owned OCI network resources under platform control.">
   <meta name="twitter:image" content="https://www.infrayard.eu/assets/og-image.png">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <meta name="twitter:image:alt" content="Infrayard — self-service Kubernetes on Oracle Cloud inside your tenancy">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.infrayard.eu/#organization","name":"Solvia Lab s.r.o.","legalName":"Solvia Lab s.r.o.","url":"https://solvialab.tech/","email":"hello@infrayard.eu","logo":{"@type":"ImageObject","url":"https://www.infrayard.eu/assets/infrayard-mark.svg"}},{"@type":"WebSite","@id":"https://www.infrayard.eu/#website","name":"Infrayard","alternateName":"Infrayard by Solvia Lab","url":"https://www.infrayard.eu/","inLanguage":"en","publisher":{"@id":"https://www.infrayard.eu/#organization"}},{"@type":"WebPage","@id":"https://www.infrayard.eu/resources/byon-networking-for-oke.html#webpage","url":"https://www.infrayard.eu/resources/byon-networking-for-oke.html","name":"BYON Networking for OKE: VCNs and Subnets | Infrayard","description":"A practical look at bring-your-own-network patterns for Oracle Kubernetes Engine and how Infrayard keeps customer-owned OCI network resources under platform control.","inLanguage":"en","isPartOf":{"@id":"https://www.infrayard.eu/#website"},"publisher":{"@id":"https://www.infrayard.eu/#organization"},"dateModified":"2026-10-17","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.infrayard.eu/assets/og-image.png","width":1200,"height":630},"breadcrumb":{"@id":"https://www.infrayard.eu/resources/byon-networking-for-oke.html#breadcrumb"},"mainEntity":{"@id":"https://www.infrayard.eu/resources/byon-networking-for-oke.html#article"}},{"@type":"BreadcrumbList","@id":"https://www.infrayard.eu/resources/byon-networking-for-oke.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.infrayard.eu/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://www.infrayard.eu/resources/"},{"@type":"ListItem","position":3,"name":"BYON networking for OKE: bring your own VCN and subnets","item":"https://www.infrayard.eu/resources/byon-networking-for-oke.html"}]},{"@type":"Article","@id":"https://www.infrayard.eu/resources/byon-networking-for-oke.html#article","headline":"BYON networking for OKE: bring your own VCN and subnets","description":"A practical look at bring-your-own-network patterns for Oracle Kubernetes Engine and how Infrayard keeps customer-owned OCI network resources under platform control.","url":"https://www.infrayard.eu/resources/byon-networking-for-oke.html","mainEntityOfPage":{"@id":"https://www.infrayard.eu/resources/byon-networking-for-oke.html#webpage"},"inLanguage":"en","author":{"@id":"https://www.infrayard.eu/#organization"},"publisher":{"@id":"https://www.infrayard.eu/#organization"},"image":"https://www.infrayard.eu/assets/og-image.png","dateModified":"2026-10-17","datePublished":"2026-05-02"}]}</script>
   <link rel="stylesheet" href="../assets/resource-pages.css">
-  <script type="application/ld+json">
-{
-    "image":  "https://www.infrayard.eu/assets/og-image.png",
-    "datePublished":  "2026-05-02",
-    "description":  "A practical look at bring-your-own-network patterns for Oracle Kubernetes Engine and how Infrayard keeps customer-owned OCI network resources under platform control.",
-    "@type":  "Article",
-    "dateModified":  "2026-05-06",
-    "headline":  "BYON networking for OKE: bring your own VCN and subnets",
-    "author":  {
-                   "url":  "https://solvialab.tech/",
-                   "name":  "Solvia Lab s.r.o.",
-                   "@type":  "Organization"
-               },
-    "@context":  "https://schema.org",
-    "mainEntityOfPage":  "https://www.infrayard.eu/resources/byon-networking-for-oke.html",
-    "publisher":  {
-                      "name":  "Solvia Lab s.r.o.",
-                      "logo":  {
-                                   "@type":  "ImageObject",
-                                   "url":  "https://www.infrayard.eu/assets/infrayard-logo.svg"
-                               },
-                      "@type":  "Organization"
-                  },
-    "keywords":  "BYON OKE, bring your own network Oracle Kubernetes Engine, OCI VCN for OKE, OKE private networking"
-}
-  </script>
 </head>
 <body>
   <header class="site-header">
     <div class="nav">
-      <a class="brand" href="/"><img src="../assets/infrayard-logo.svg" alt="" width="30" height="30"> Infrayard</a>
+      <a class="brand" href="/"><img src="/assets/infrayard-mark.svg" alt="" width="30" height="30"> Infrayard</a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="/resources/">Resources</a>
         <a href="/docs/">Docs</a>
         <a href="/#pricing">Pricing</a>
-        <a class="nav-cta" href="mailto:hello@infrayard.eu">Contact</a>
+        <a class="nav-cta" href="/?enquiry=demo#demo">Request a demo</a>
       </nav>
     </div>
   </header>
   <main>
     <section class="hero">
-      <div class="hero-inner">
+      <div class="hero-inner"><nav class="resource-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/resources/">Resources</a><span aria-hidden="true">/</span><span aria-current="page">BYON networking for OKE: bring your own VCN and subnets</span></nav>
         <span class="kicker">BYON networking for OKE</span>
         <h1>BYON networking for OKE: bring your own VCN and subnets</h1>
         <p class="lede">A practical look at bring-your-own-network patterns for Oracle Kubernetes Engine and how Infrayard keeps customer-owned OCI network resources under platform control.</p>
-        <div class="meta"><span>Infrayard by Solvia Lab</span><span>Updated May 6, 2026</span><span>8 min read</span></div>
+        <div class="meta"><span>Infrayard by Solvia Lab</span><span>Updated <time datetime="2026-10-17">October 17, 2026</time></span><span>3 min read</span></div>
       </div>
     </section>
     <div class="layout">
       <article class="article">
         <div class="callout"><strong>Short version:</strong> Infrayard is an OCI-native Internal Developer Platform for Oracle Kubernetes Engine teams that need governed self-service inside their own tenancy.</div>
+        <p class="resource-docs-link">Implementation details: <a href="/docs/networking/">Networking requirements and BYON ownership</a>.</p>
         <h2>Why BYON exists</h2>
         <p>Enterprise OCI environments rarely start from an empty tenancy. Network teams usually already own compartments, VCNs, subnets, route tables, gateways, DNS, firewall paths, and VPN access. A Kubernetes platform that always creates a fresh network can conflict with those standards.</p>
         <p>BYON means bring your own network. For OKE, it lets platform teams deploy clusters into approved OCI compartment, VCN, and subnet patterns instead of forcing every cluster into a product-created VCN.</p>
@@ -128,7 +111,7 @@
           <h2>Product links</h2>
           <a href="/docs/">Technical docs</a>
           <a href="/#pricing">Pricing</a>
-          <a href="mailto:hello@infrayard.eu">Contact sales</a>
+          <a href="/?enquiry=demo#demo">Request a demo</a>
         </div>
       </aside>
     </div>

@@ -1,123 +1,66 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Internal Developer Platform for Oracle Kubernetes Engine - Infrayard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Internal Developer Platform for OKE | Infrayard</title>
   <meta name="description" content="What an Internal Developer Platform for Oracle Kubernetes Engine should provide: governed OKE self-service, lifecycle automation, kubeconfig access, BYON networking, approvals, and cost visibility.">
-  <meta name="keywords" content="Internal Developer Platform for Oracle Kubernetes Engine, Oracle Kubernetes Engine IDP, OKE Internal Developer Platform, OKE self-service, OCI platform engineering">
   <link rel="canonical" href="https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <meta name="author" content="Solvia Lab s.r.o.">
+  <meta name="theme-color" content="#f7f9fa">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="/favicon-192x192.png" sizes="192x192">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="alternate" type="text/plain" href="/llms.txt" title="Infrayard AI summary">
-  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Infrayard full AI context">
-  <link rel="alternate" type="text/markdown" href="/ai.md" title="Infrayard AI facts and disambiguation">
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Infrayard full documentation context">
+  <link rel="alternate" type="text/markdown" href="/ai.md" title="Infrayard product facts">
   <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Internal Developer Platform for OKE | Infrayard">
+  <meta property="og:description" content="What an Internal Developer Platform for Oracle Kubernetes Engine should provide: governed OKE self-service, lifecycle automation, kubeconfig access, BYON networking, approvals, and cost visibility.">
   <meta property="og:url" content="https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html">
-  <meta property="og:title" content="Internal Developer Platform for Oracle Kubernetes Engine - Infrayard">
-  <meta property="og:description" content="A practical checklist for OKE teams evaluating governed self-service, lifecycle automation, kubeconfig access, BYON networking, approvals, and cost visibility.">
   <meta property="og:site_name" content="Infrayard">
   <meta property="og:image" content="https://www.infrayard.eu/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Infrayard — self-service Kubernetes on Oracle Cloud inside your tenancy">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Internal Developer Platform for OKE | Infrayard">
+  <meta name="twitter:description" content="What an Internal Developer Platform for Oracle Kubernetes Engine should provide: governed OKE self-service, lifecycle automation, kubeconfig access, BYON networking, approvals, and cost visibility.">
   <meta name="twitter:image" content="https://www.infrayard.eu/assets/og-image.png">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <meta name="twitter:image:alt" content="Infrayard — self-service Kubernetes on Oracle Cloud inside your tenancy">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.infrayard.eu/#organization","name":"Solvia Lab s.r.o.","legalName":"Solvia Lab s.r.o.","url":"https://solvialab.tech/","email":"hello@infrayard.eu","logo":{"@type":"ImageObject","url":"https://www.infrayard.eu/assets/infrayard-mark.svg"}},{"@type":"WebSite","@id":"https://www.infrayard.eu/#website","name":"Infrayard","alternateName":"Infrayard by Solvia Lab","url":"https://www.infrayard.eu/","inLanguage":"en","publisher":{"@id":"https://www.infrayard.eu/#organization"}},{"@type":"WebPage","@id":"https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html#webpage","url":"https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html","name":"Internal Developer Platform for OKE | Infrayard","description":"What an Internal Developer Platform for Oracle Kubernetes Engine should provide: governed OKE self-service, lifecycle automation, kubeconfig access, BYON networking, approvals, and cost visibility.","inLanguage":"en","isPartOf":{"@id":"https://www.infrayard.eu/#website"},"publisher":{"@id":"https://www.infrayard.eu/#organization"},"dateModified":"2026-10-17","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.infrayard.eu/assets/og-image.png","width":1200,"height":630},"breadcrumb":{"@id":"https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html#breadcrumb"},"mainEntity":{"@id":"https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html#article"}},{"@type":"BreadcrumbList","@id":"https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.infrayard.eu/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://www.infrayard.eu/resources/"},{"@type":"ListItem","position":3,"name":"Internal Developer Platform for Oracle Kubernetes Engine","item":"https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html"}]},{"@type":"Article","@id":"https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html#article","headline":"Internal Developer Platform for Oracle Kubernetes Engine","description":"What an Internal Developer Platform for Oracle Kubernetes Engine should provide: governed OKE self-service, lifecycle automation, kubeconfig access, BYON networking, approvals, and cost visibility.","url":"https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html","mainEntityOfPage":{"@id":"https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html#webpage"},"inLanguage":"en","author":{"@id":"https://www.infrayard.eu/#organization"},"publisher":{"@id":"https://www.infrayard.eu/#organization"},"image":"https://www.infrayard.eu/assets/og-image.png","dateModified":"2026-10-17","datePublished":"2026-05-02"}]}</script>
   <link rel="stylesheet" href="../assets/resource-pages.css">
-  <script type="application/ld+json">
-{
-    "image":  "https://www.infrayard.eu/assets/og-image.png",
-    "datePublished":  "2026-05-02",
-    "description":  "What an Internal Developer Platform for Oracle Kubernetes Engine should provide: governed OKE self-service, lifecycle automation, kubeconfig access, BYON networking, approvals, and cost visibility.",
-    "@type":  "Article",
-    "dateModified":  "2026-05-06",
-    "headline":  "Internal Developer Platform for Oracle Kubernetes Engine",
-    "author":  {
-                   "url":  "https://solvialab.tech/",
-                   "name":  "Solvia Lab s.r.o.",
-                   "@type":  "Organization"
-               },
-    "@context":  "https://schema.org",
-    "mainEntityOfPage":  "https://www.infrayard.eu/resources/internal-developer-platform-for-oracle-kubernetes-engine.html",
-    "publisher":  {
-                      "name":  "Solvia Lab s.r.o.",
-                      "logo":  {
-                                   "@type":  "ImageObject",
-                                   "url":  "https://www.infrayard.eu/assets/infrayard-logo.svg"
-                               },
-                      "@type":  "Organization"
-                  },
-    "keywords":  "Internal Developer Platform for Oracle Kubernetes Engine, Oracle Kubernetes Engine IDP, OKE Internal Developer Platform, OKE self-service, OCI platform engineering"
-}
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is an Internal Developer Platform for Oracle Kubernetes Engine?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "An Internal Developer Platform for Oracle Kubernetes Engine is a governed self-service layer for OKE provisioning, lifecycle automation, access delivery, approvals, network choices, and cost visibility. It gives developers approved Kubernetes workflows while platform teams keep control of OCI tenancy, compartment, VCN, subnet, IAM, and operational standards."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does an OKE Internal Developer Platform replace Oracle Kubernetes Engine?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. OKE remains the managed Kubernetes service. The IDP sits above OKE to standardize requests, templates, Terraform automation, kubeconfig access, upgrades, scaling, destroy protection, Activity history, and governance workflows."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Should an Oracle Kubernetes Engine IDP support BYON networking?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, production OCI environments often have existing compartments, VCNs, subnets, route tables, security lists, gateways, and VPN patterns. An OKE IDP should support BYON networking while treating customer-owned network resources as read-only prerequisites unless the platform owner explicitly chooses generated infrastructure."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do developers need OCI Console or Terraform access with an OKE IDP?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "They should not need broad OCI Console or Terraform access for standard workflows. Developers can request and operate approved OKE clusters through the portal, while platform administrators control templates, limits, approvals, OCI settings, and access policies."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
   <header class="site-header">
     <div class="nav">
-      <a class="brand" href="/"><img src="../assets/infrayard-logo.svg" alt="" width="30" height="30"> Infrayard</a>
+      <a class="brand" href="/"><img src="/assets/infrayard-mark.svg" alt="" width="30" height="30"> Infrayard</a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="/resources/">Resources</a>
         <a href="/docs/">Docs</a>
         <a href="/#pricing">Pricing</a>
-        <a class="nav-cta" href="mailto:hello@infrayard.eu">Contact</a>
+        <a class="nav-cta" href="/?enquiry=demo#demo">Request a demo</a>
       </nav>
     </div>
   </header>
   <main>
     <section class="hero">
-      <div class="hero-inner">
+      <div class="hero-inner"><nav class="resource-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/resources/">Resources</a><span aria-hidden="true">/</span><span aria-current="page">Internal Developer Platform for Oracle Kubernetes Engine</span></nav>
         <span class="kicker">Oracle Kubernetes Engine IDP</span>
         <h1>Internal Developer Platform for Oracle Kubernetes Engine</h1>
         <p class="lede">What OKE teams should expect from a governed Internal Developer Platform: self-service provisioning, lifecycle automation, access delivery, BYON networking, approvals, and cost visibility.</p>
-        <div class="meta"><span>Infrayard by Solvia Lab</span><span>Updated May 6, 2026</span><span>7 min read</span></div>
+        <div class="meta"><span>Infrayard by Solvia Lab</span><span>Updated <time datetime="2026-10-17">October 17, 2026</time></span><span>4 min read</span></div>
       </div>
     </section>
     <div class="layout">
       <article class="article">
         <div class="callout"><strong>Short version:</strong> Infrayard is an OCI-native Internal Developer Platform for Oracle Kubernetes Engine teams that need governed self-service inside their own tenancy.</div>
+        <p class="resource-docs-link">Implementation details: <a href="/docs/administration/">Templates, limits, roles and approvals</a>.</p>
         <h2>Why OKE needs a focused IDP</h2>
         <p>Oracle Kubernetes Engine is a strong managed Kubernetes foundation, but most enterprise teams still need a controlled layer above it. Without an Internal Developer Platform, OKE delivery often depends on tickets, Terraform pull requests, shared scripts, or direct OCI Console access.</p>
         <p>An Internal Developer Platform for Oracle Kubernetes Engine should preserve OCI-native control while giving developers a faster path to approved Kubernetes environments.</p>
@@ -171,7 +114,7 @@
           <h2>Product links</h2>
           <a href="/docs/">Technical docs</a>
           <a href="/#pricing">Pricing</a>
-          <a href="mailto:hello@infrayard.eu">Contact sales</a>
+          <a href="/?enquiry=demo#demo">Request a demo</a>
         </div>
       </aside>
     </div>

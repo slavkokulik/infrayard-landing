@@ -1,116 +1,75 @@
-# Infrayard by Solvia Lab - OCI-native Internal Developer Platform for Oracle Kubernetes Engine
+# Infrayard website
 
-**Infrayard by Solvia Lab** is a commercial, OCI-native Internal Developer Platform (IDP) for **Oracle Kubernetes Engine (OKE)**. It helps platform engineering teams offer governed self-service Kubernetes lifecycle management inside their own Oracle Cloud tenancy.
+The public landing page, technical documentation and resources for **Infrayard by Solvia Lab**, a commercial self-service portal for Oracle Kubernetes Engine (OKE).
 
-Website: [https://www.infrayard.eu](https://www.infrayard.eu)  
-Public docs: [https://www.infrayard.eu/docs/](https://www.infrayard.eu/docs/)  
-Resources hub: [https://www.infrayard.eu/resources/](https://www.infrayard.eu/resources/)  
-Contact: [hello@infrayard.eu](mailto:hello@infrayard.eu)
+This repository contains the website, not the product source, Helm chart or customer credentials.
 
-> This repository contains the public landing page, public documentation, and legal pages for Infrayard. It does **not** contain the Infrayard product source code. Infrayard is commercial software delivered through private registry access, Helm values, and customer onboarding.
+## Local development
 
-## What Infrayard Is
+Node.js 20 or newer is sufficient. No package installation is needed; the Markdown build dependency is vendored with its MIT licence.
 
-Infrayard turns Oracle Kubernetes Engine into a governed internal platform. Engineers can deploy, scale, upgrade, access, and destroy OKE clusters through a web portal, while administrators keep control through templates, limits, approvals, audit history, cost visibility, and network ownership boundaries.
+```sh
+npm run build
+npm run check
+npm test
+npm run preview
+```
 
-It is built for organizations that want faster OKE delivery without giving every engineer direct OCI Console access, IAM administration rights, Terraform knowledge, or local OCI CLI setup.
+The optional preview serves only on `http://127.0.0.1:4173/`. Localhost contact forms validate and retain entries but do not send email. Set `PORT` to change the port. Building and previewing do not publish anything, create an order or collect payment.
 
-## Key Capabilities
+## Source files
 
-- **OKE self-service provisioning** - deploy managed Kubernetes clusters on Oracle Cloud from a web portal.
-- **Oracle Kubernetes Engine lifecycle management** - create, scale, upgrade, and destroy OKE clusters with live Terraform logs.
-- **OCI-native platform engineering** - works with OCI IAM, OKE, VCN networking, Object Storage, and customer tenancy boundaries.
-- **Terraform automation for OKE** - Terraform execution is isolated per job with state stored in OCI Object Storage.
-- **Governed self-service** - admins define cluster templates, resource limits, Kubernetes versions, VM shapes, and allowed deployment options.
-- **Approval workflows** - protected-cluster destroy requests and per-user limit-increase requests flow through an admin review queue, with optional info-only email pings for request submit/review events.
-- **Activity history** - users receive durable Activity notifications for lifecycle events, approvals, denials, TTL warnings, and admin limit changes.
-- **BYON / bring your own network** - support for existing OCI compartments, VCNs, and subnets with preflight validation while keeping customer-owned network resources read-only.
-- **VPN-first Kubernetes API access** - public OKE API endpoints can be restricted to runner, VPN, and corporate CIDRs for environments avoiding DRG or LPG complexity.
-- **Kubeconfig download** - kubectl-ready kubeconfig generation without requiring users to configure OCI CLI locally.
-- **FinOps visibility** - live monthly/hourly cost estimates for deploy forms, cluster cards, detail views, templates, and admin panels.
-- **Shape and Kubernetes compatibility checks** - OCI shape sync, OKE version sync, node-image selection, and fail-closed compatibility filtering reduce invalid cluster requests.
-- **OIDC authentication** - works with Keycloak, Azure AD, Okta, Google Workspace, and OIDC-compatible identity providers.
-- **Private deployment model** - runs in the customer environment through Helm, with no SaaS control plane required.
+| Source | Purpose |
+| --- | --- |
+| `src/index.html` | Landing structure and English copy |
+| `content/site.mjs` | Shared prices, metadata, FAQ and docs navigation |
+| `content/docs/*.md` | Documentation; subscription copy is generated from shared prices |
+| `scripts/build.mjs` | Generates landing HTML, 12 static docs pages, section search, AI summaries and sitemap |
+| `content/seo.mjs`, `scripts/seo.mjs` | Shared search metadata, breadcrumbs, resource titles and demo publication metadata |
+| `scripts/check-seo.mjs` | Canonical, crawlability, sitemap, structured-data and AI context checks |
+| `scripts/export.mjs`, `vercel.json` | Local public-only artifact and future Vercel build/routing configuration |
+| `assets/site.css`, `assets/docs.css` | Responsive styles and light/dark themes |
+| `assets/site.js`, `assets/docs.js` | Pricing controls, forms, navigation and search |
+| `assets/contact-request.js` | Validates contact processor responses |
+| `resources/*.html` | Educational articles |
 
-## Built For
+Run the build after changing source content. Commit generated pages and data with the source. Do not edit generated HTML directly. The landing page and docs have no remote CSS or client-side Markdown dependency.
 
-Infrayard is designed for:
+Resource and legal bodies remain editable HTML. The build refreshes their common search metadata and preserves the original resource publication dates. Edit resource search titles in `content/seo.mjs`. Update `site.updated` only for a substantive editorial change; it is not generated from the build time.
 
-- platform engineering teams standardizing Oracle Cloud Kubernetes operations
-- enterprises using Oracle Kubernetes Engine as their managed Kubernetes platform
-- internal developer platform teams building self-service infrastructure portals
-- organizations that need Kubernetes governance, approvals, auditability, and cost visibility
-- OCI customers that want to reduce manual Terraform, ticket-based cluster delivery, and direct OCI Console usage
-- regulated or security-conscious teams that prefer software running inside their own tenancy
+## Search and release preparation
 
-## Common Search Terms
+The Slovak [Google Search Console guide](SEARCH-CONSOLE.md) covers domain verification, the single sitemap submission, URL inspection and post-release checks. `npm run export` prepares `dist/` locally; it never deploys. Vercel is configured to publish only that directory on a future authorised deployment. Keep the existing Google verification file.
 
-Infrayard is relevant to teams searching for:
+The `/demo/` watch page and video sitemap are ready. Before the first public release of the music version, set its real `demo.publishedAt` in `content/seo.mjs` and rebuild to add complete VideoObject metadata. Until then the build does not invent an upload date. Do not change that original publication date on subsequent builds.
 
-- Oracle Kubernetes Engine Internal Developer Platform
-- OCI-native IDP
-- OKE self-service platform
-- Kubernetes lifecycle management for Oracle Cloud
-- Terraform automation for OKE
-- Oracle Cloud Kubernetes governance
-- OKE provisioning portal
-- Kubernetes cost visibility on OCI
-- OKE kubeconfig access management
-- bring your own VCN for OKE
-- BYON Oracle Cloud Kubernetes
-- OKE approval workflows
-- platform engineering for Oracle Cloud
-- private Internal Developer Platform for Kubernetes
-- self-hosted Kubernetes platform portal
+## Commercial model
 
-## Deployment Model
+<!-- pricing:start -->
+- Business: **€3,000/month** with monthly billing and commitment, or **€30,000/year** paid upfront.
+- Founding Business: **40% off for the first 12 months**, for the first 5 qualifying customers — **€1,800/month** or **€18,000 for the first year** paid upfront.
+- Enterprise: from **€6,500/month**, with scope, billing and commitment in the proposal.
+- Optional non-production evaluation: **€1,500 for 30 days**, starting after readiness confirmation. Credited against the first production invoice if the order is accepted within 30 days after evaluation ends.
+<!-- pricing:end -->
 
-Infrayard is deployed into the customer environment, typically into an existing OKE cluster or a Kubernetes host used for platform services. The public product documentation describes the deployment paths at a high level; detailed onboarding, values files, operational runbooks, and validation procedures are provided during evaluation or commercial onboarding.
+Oracle usage is separate. Subscription activation, invoicing, renewals, cancellation and entitlements are arranged through the commercial agreement. This static website is not a recurring billing backend. A website edit does not change separately issued licence rights or existing agreements.
 
-Infrayard is intentionally not a SaaS control plane. OCI credentials, Terraform state, Kubernetes access, and operational control remain inside the customer's Oracle Cloud environment.
+The shared source of truth is `content/site.mjs`. Customer-facing details are in [subscription, billing and licensing](https://www.infrayard.eu/docs/subscription/). Planned work stays on the dedicated [roadmap](https://www.infrayard.eu/docs/releases/).
 
-## Commercial Access
+## Demo media
 
-Infrayard is commercial software. Public pricing, evaluation options, and the founding customer program are described on the website:
+The landing player uses `assets/infrayard-demo-with-music.mp4`, with quiet instrumental music and gentle fades. The original `assets/final_hq_infrayard.mp4` is preserved; the new version copies its video stream without re-encoding. Music attribution, licensing, sharing credit and optional offline rebuild instructions are in [the music credits](assets/music/credits.md). Keep that credit when reusing the video on another platform.
 
-- [Pricing](https://www.infrayard.eu/#pricing)
-- [Founding Customer Program](https://www.infrayard.eu/#founding)
-- [Documentation](https://www.infrayard.eu/docs/)
-- [Privacy Policy](https://www.infrayard.eu/legal/privacy.html)
-- [Terms and Legal Notice](https://www.infrayard.eu/legal/terms.html)
-- [Cookie Policy](https://www.infrayard.eu/legal/cookies.html)
+## Documentation
 
-For evaluation, enterprise access, or partnership questions, contact [hello@infrayard.eu](mailto:hello@infrayard.eu).
+Docs have static URLs and readable HTML without JavaScript, plus section-level search. The public Markdown entry points remain. Legacy `#readme` and `#features` links map to current pages.
 
-## Roadmap Direction
+The content preserves Basic/Enhanced worker-refresh differences, BYON ownership rules, compartment scope, template-limit exceptions, state handling and access prerequisites. Exact release-specific installation, upgrade and recovery commands are supplied in customer runbooks.
 
-Infrayard's current focus is reliable governed OKE lifecycle management, BYON validation, and production deployment into existing OKE environments.
+## Forms and verification
 
-Planned roadmap areas include an AI-assisted troubleshooting advisor with an optional Oracle-native provider, Gatekeeper policy and cost guardrails, drift detection, approval-gated remediation, and an in-cluster access agent for private-by-default environments. Roadmap items are directional and may change based on customer feedback and commercial agreements.
+Production forms use the existing FormSubmit destinations: `hello@infrayard.eu` and `support@infrayard.eu`. Success requires a successful HTTP status and explicit processor confirmation. Errors preserve entered data. Automated tests mock responses and never send email.
 
-## Repository Scope
+Actual processor activation and inbox delivery must be checked as part of a separately authorised live release. Local tests do not prove mailbox delivery.
 
-This public repository is intended for discoverability and transparency around the public website. It may include:
-
-- landing page HTML/CSS/JS
-- public documentation
-- legal pages
-- public product positioning
-- public contact links
-
-It does not include:
-
-- backend product source code
-- Terraform product modules
-- Helm chart source intended for customers
-- private runbooks
-- internal billing or licensing notes
-- customer data
-- secrets or credentials
-
-## Links
-
-- Website: [https://www.infrayard.eu](https://www.infrayard.eu)
-- Docs: [https://www.infrayard.eu/docs/](https://www.infrayard.eu/docs/)
-- Email: [hello@infrayard.eu](mailto:hello@infrayard.eu)
-- Company: [Solvia Lab](https://solvialab.tech)
+This change is prepared for local review. It does not perform deployment, remote push, payment setup or customer subscription activation.

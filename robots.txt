@@ -1,22 +1,15 @@
+# Public pages, scripts, styles, images and video are crawlable.
+# The wildcard applies to Googlebot, Bingbot and AI crawlers alike.
+# These rules are crawl hints, not access controls. Publish only dist/.
 User-agent: *
 Allow: /
-Allow: /llms.txt
-Allow: /llms-full.txt
-Allow: /ai.md
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
+Disallow: /.git/
+Disallow: /.idea/
+Disallow: /.local-tools/
+Disallow: /src/
+Disallow: /content/
+Disallow: /scripts/
+Disallow: /tests/
+Disallow: /dist/
 
 Sitemap: https://www.infrayard.eu/sitemap.xml
